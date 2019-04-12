@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText etHeight, etWeight, etBmi;
+    EditText etHeight, etWeight;
+    TextView tvBmis;
     Button btnCompute;
 
 
@@ -24,37 +26,24 @@ public class MainActivity extends AppCompatActivity {
 
         etHeight = findViewById(R.id.etHeight);
         etWeight = findViewById(R.id.etWeight);
-        etBmi = findViewById(R.id.etBmi);
+        tvBmis = findViewById(R.id.tvBmis);
         btnCompute = findViewById(R.id.btnCompute);
 
         btnCompute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Double height, weight, bmi;
-                height= (Double.parseDouble(etHeight.getText().toString()))/100;
+                height= Double.parseDouble(etHeight.getText().toString());
 
                 weight = Double.parseDouble(etWeight.getText().toString());
 
-                bmi = weight/(height*height);
-                bmi = Math.round(bmi*100)/100.0D;
+               BmiCalculator bmiCalculator= new BmiCalculator(height, weight);
+               bmi= bmiCalculator.Bmi();
+               tvBmis.setText(Double.toString(bmi));
 
-                etBmi.setText(Double.toString(bmi));
+               Toast.makeText(MainActivity.this, bmiCalculator.Category(), Toast.LENGTH_LONG).show();
 
-                if (bmi<18.5){
-                    Toast.makeText(MainActivity.this, "Underweight",Toast.LENGTH_LONG).show();
-                }
-                else if(bmi>18.5 && bmi<24.9){
-                    Toast.makeText(MainActivity.this, "Normal Weight",Toast.LENGTH_LONG).show();
 
-                }
-                else if(bmi>25 && bmi<29.9){
-                    Toast.makeText(MainActivity.this, "Overweight",Toast.LENGTH_LONG).show();
-
-                }
-                else{
-                    Toast.makeText(MainActivity.this, "Obesity",Toast.LENGTH_LONG).show();
-
-                }
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(btnCompute.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
 

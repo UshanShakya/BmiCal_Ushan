@@ -7,21 +7,32 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvHeight"
+        android:id="@+id/tvBar"
+        android:text="Check your BMI."
+        style="@style/TextView"
         android:textSize="20sp"
-        android:text="Your Height:"
         android:layout_marginLeft="50dp"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/tvHeight"
+        android:text="Your Height:"
+        style="@style/TextView"
+        android:textSize="20sp"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/tvBar"
+        android:layout_marginTop="40dp"/>
 
     <EditText
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/etHeight"
+        android:layout_below="@+id/tvBar"
         android:layout_toEndOf="@+id/tvHeight"
         android:layout_marginLeft="10dp"
         android:inputType="numberDecimal"
+        android:layout_marginTop="40dp"
         android:textSize="20sp"/>
     <TextView
         android:layout_width="wrap_content"
@@ -34,8 +45,7 @@
 
     <TextView
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+       style="@style/TextView"
         android:id="@+id/tvWeight"
         android:layout_below="@+id/tvCm"
         android:textSize="20sp"
@@ -64,8 +74,7 @@
         />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/TextView"
         android:id="@+id/btnCompute"
         android:layout_below="@+id/tvKg"
         android:layout_centerInParent="true"
@@ -75,18 +84,16 @@
         />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/TextView"
         android:id="@+id/tvBmi"
         android:layout_centerInParent="true"
         android:layout_toLeftOf="@+id/etWeight"
         android:text="Your BMI:"
         android:textSize="20sp"
         />
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/etBmi"
+    <TextView
+        style="@style/TextView"
+        android:id="@+id/tvBmis"
         android:layout_below="@+id/tvBmi"
         android:layout_centerInParent="true"
         android:layout_toLeftOf="@+id/etWeight"
