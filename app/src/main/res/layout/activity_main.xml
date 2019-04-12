@@ -96,7 +96,6 @@
         style="@style/TextView"
         android:id="@+id/tvBmis"
         android:layout_below="@+id/tvBmi"
-        android:layout_centerInParent="true"
         android:layout_toLeftOf="@+id/etWeight"
         android:textSize="20sp"/>
 

@@ -4,6 +4,7 @@ package com.example.bmi_ushan;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -33,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Double height, weight, bmi;
+
+                if(TextUtils.isEmpty(etHeight.getText().toString())){
+                    etHeight.setError("Please enter Height");
+                }
+                if(TextUtils.isEmpty(etHeight.getText().toString())){
+                    etHeight.setError("Please enter Weight");
+                }
                 height= Double.parseDouble(etHeight.getText().toString());
 
                 weight = Double.parseDouble(etWeight.getText().toString());
