@@ -37,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(etHeight.getText().toString())){
                     etHeight.setError("Please enter Height");
+                    return;
                 }
                 if(TextUtils.isEmpty(etHeight.getText().toString())){
                     etHeight.setError("Please enter Weight");
+                    return;
                 }
                 height= Double.parseDouble(etHeight.getText().toString());
 
